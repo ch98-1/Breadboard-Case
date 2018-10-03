@@ -1,4 +1,4 @@
-generate_box = false;//true to generate box, false for lid
+generate_box = true;//true to generate box, false for lid
 
 //breadboard size
 length = 165.1; //longer side of the breadboard
@@ -122,20 +122,20 @@ if (generate_box == true) { //generate box
         }
     }
 } else { //generate lid
-    translate([-wall_width*2 - clearence, -wall_width*2 - clearence, THeight]) { //lid
-                cube([TLength + wall_width*4 + clearence*2, TWidth + wall_width*4 + clearence*2, wall_width]);
+    translate([-wall_width - clearence, -wall_width - clearence, THeight]) { //lid
+                cube([TLength + wall_width*2 + clearence*2, TWidth + wall_width*2 + clearence*2, wall_width]);
     }
-    translate([-wall_width*2 - clearence, -wall_width*2 - clearence, THeight - wall_width]) { //ledge
-                cube([TLength + wall_width*4 + clearence*2, wall_width, wall_width]);
+    translate([-wall_width - clearence, -wall_width - clearence, THeight - wall_width]) { //ledge
+                cube([TLength + wall_width*2 + clearence*2, wall_width, wall_width]);
     }
-    translate([-wall_width*2 - clearence, -wall_width*2 - clearence, THeight - wall_width]) { 
-                cube([wall_width, TWidth + wall_width*4 + clearence*2, wall_width]);
+    translate([-wall_width - clearence, -wall_width - clearence, THeight - wall_width]) { 
+                cube([wall_width, TWidth + wall_width*2 + clearence*2, wall_width]);
     }
-    translate([-wall_width*2 - clearence, TWidth + wall_width + clearence, THeight - wall_width]) { //ledge
-                cube([TLength + wall_width*4 + clearence*2, wall_width, wall_width]);
+    translate([-wall_width - clearence, TWidth + clearence, THeight - wall_width]) { //ledge
+                cube([TLength + wall_width*2 + clearence*2, wall_width, wall_width]);
     }
-    translate([TLength + wall_width + clearence, -wall_width*2 - clearence, THeight - wall_width]) { 
-                cube([wall_width, TWidth + wall_width*4 + clearence*2, wall_width]);
+    translate([TLength + clearence, -wall_width - clearence, THeight - wall_width]) { 
+                cube([wall_width, TWidth + wall_width*2 + clearence*2, wall_width]);
     }
     intersection() {
         union() {
